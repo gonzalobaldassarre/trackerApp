@@ -1,0 +1,12 @@
+{
+  "name": "tracks",
+  "displayName": "tracks",
+  "android": {
+    "package": "ca.brentvatne.growlerprowler",
+    "config": {
+      "googleMaps": {
+        "apiKey": "AIzaSyBmX6RGeWLkTJpLQfjojE6bVcfrGZw0r_8"
+      }
+    }
+  }
+}

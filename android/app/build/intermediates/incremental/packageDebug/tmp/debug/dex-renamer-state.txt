@@ -1,0 +1,4 @@
+#Sun Dec 01 13:52:16 ART 2019
+base.0=/home/gonz4/Escritorio/React/tracks/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
