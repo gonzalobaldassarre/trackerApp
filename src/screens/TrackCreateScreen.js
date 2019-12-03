@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useContext, useEffect, useCallback } from 'react';
+import { StyleSheet,PermissionsAndroid } from 'react-native';
 import { Text } from 'react-native-elements';
 import Map from '../components/Map';
-import { SafeAreaView } from 'react-navigation';
-import { requestPermissionsAsync } from 'expo-location';
+import { SafeAreaView, withNavigationFocus } from 'react-navigation';
+import { Context as LocationContext } from '../context/LocationContext.js';
+import useLocation from '../hooks/useLocation';
+import TrackForm from '../components/TrackForm';
 
-const TrackCreateScreen = () => {
-    const [err, setErr]= useState(null);
-    const StartWatching = async () => {
-        try {
-            await requestPermissionsAsync();
-        }
-        catch (e) {
-            setErr(e);
-        }
-    }
+// <NavigationEvents onWillBlur={()=>{}}/> 
+// withNavigationFocus : componente recibe una nueva propiedad { isFocused }, que sirve para 
+// saber si el componetne se esta mostrando en pantalla
+const TrackCreateScreen = ({ isFocused }) => {
+    const { state, addLocation } = useContext(LocationContext);
+    const callback = useCallback(location => {
+        addLocation(location, state.recording);
+    }, [state.recording]);
 
-    useEffect( () => {
-        StartWatching();
-    }, []);
+    const [err] = useLocation(isFocused, callback);
+
     return <SafeAreaView>
      <Text h2> TrackCreateScreen </Text>
-     <Map/>
+    
+     <Map />
      {err ? <Text>Please enable location permissions</Text> : null}
+     <TrackForm/>
      </SafeAreaView>
 }
 const styles = StyleSheet.create({});
 
-export default TrackCreateScreen;
+export default withNavigationFocus(TrackCreateScreen);

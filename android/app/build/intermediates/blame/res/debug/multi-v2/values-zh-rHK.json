@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/gonz4/Escritorio/React/tracks/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "/home/gonz4/Escritorio/trackerApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "/root/.gradle/caches/transforms-2/files-2.1/97d04dcd1d21779dbae37aef2621da02/res/values-zh-rHK/values.xml",

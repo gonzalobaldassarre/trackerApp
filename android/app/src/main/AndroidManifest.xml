@@ -2,7 +2,8 @@
   package="com.tracks">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
@@ -23,7 +24,7 @@
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
       <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="your-google-api-key"/>
+        android:value="AIzaSyBmX6RGeWLkTJpLQfjojE6bVcfrGZw0r_8"/>
     </application>
 
 </manifest>
