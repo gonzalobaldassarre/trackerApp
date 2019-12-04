@@ -1,2 +1,11 @@
+Start app
+=============
+In separated terminals: 
 
-Unfinished app
+1. on /track-server run: npm run dev
+2. run : ngrok http 3000
+
+3. with link given in 2 config the file /src/api/tracker.js 
+4. run app and sign up an acount
+5. create, save and visualize a track
+
