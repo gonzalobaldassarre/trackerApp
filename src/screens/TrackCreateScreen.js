@@ -6,6 +6,7 @@ import { SafeAreaView, withNavigationFocus } from 'react-navigation';
 import { Context as LocationContext } from '../context/LocationContext.js';
 import useLocation from '../hooks/useLocation';
 import TrackForm from '../components/TrackForm';
+import Icon  from 'react-native-vector-icons/FontAwesome';
 
 // <NavigationEvents onWillBlur={()=>{}}/> 
 // withNavigationFocus : componente recibe una nueva propiedad { isFocused }, que sirve para 
@@ -26,6 +27,12 @@ const TrackCreateScreen = ({ isFocused }) => {
      <TrackForm/>
      </SafeAreaView>
 }
+
+TrackCreateScreen.navigationOptions = {
+    title: 'Add track',
+    tabBarIcon: <Icon name="plus" size={20} />
+};
+
 const styles = StyleSheet.create({});
 
 export default withNavigationFocus(TrackCreateScreen);

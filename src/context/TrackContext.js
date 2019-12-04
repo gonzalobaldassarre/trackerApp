@@ -15,6 +15,8 @@ const fetchTracks = dispatch => async () => {
     dispatch({ type: 'FETCH_TRACKS', payload: response.data});
 };
 const createTrack = dispatch => async (name, locations) => { 
+    console.log('FROM CREATE TRACK CONTEXT:',locations);
+    
     await trackerApi.post('/tracks', { name, locations });
 };
 

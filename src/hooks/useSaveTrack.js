@@ -9,7 +9,24 @@ export default () => {
     const { state: { locations, name }, reset} = useContext(LocationContext);
 
     const saveTrack = async () => {
-        await createTrack(name, locations);
+        console.log('FROM CREATE TRACKS LOCATIONS:',locations);
+        let newLocations = [];
+        for (let i=0; i<locations.length ;i++) {
+            let newLock = { 
+                timestamp: 100000000+i*100,
+                coords: {
+                    latitude: locations[i].latitude,
+                    longitude: locations[i].longitude,
+                    altitude: 100,
+                    accuracy: 100,
+                    heading: 100,
+                    speed: 100
+                }
+            }
+            newLocations.push(newLock);
+        }
+        console.log('NEW LOCATIONS: ',newLocations);
+        await createTrack(name, newLocations);
         reset();
         navigate('TrackList');
     }

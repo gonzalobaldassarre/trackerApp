@@ -14,6 +14,18 @@ import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 import { Provider  as LocationProvider } from './src/context/LocationContext';
 import { Provider as TrackProvider } from './src/context/TrackContext';
 import TrackForm from './src/components/TrackForm';
+import Icon  from 'react-native-vector-icons/FontAwesome';
+
+const trackListFlow = createStackNavigator({
+  TrackList: TrackListScreen,
+  TrackDetail: TrackDetailScreen
+});
+
+trackListFlow.navigationOptions = {
+  title: 'Tracks',
+  tabBarIcon: <Icon name="th-list" size={20} />
+};
+
 const switchNavigator = createSwitchNavigator({
   Resolve: ResolveAuthScreen,
   loginFlow: createStackNavigator({
@@ -21,10 +33,7 @@ const switchNavigator = createSwitchNavigator({
     Signin: SigninScreen
   }),
   mainFlow: createBottomTabNavigator({
-    trackListFlow: createStackNavigator({
-      TrackList: TrackListScreen,
-      TrackDetail: TrackDetailScreen
-    }),
+    trackListFlow, //  ==== trackListFlow: trackListFlow,
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen
   }),  
